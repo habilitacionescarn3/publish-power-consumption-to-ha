@@ -5,10 +5,5 @@ resource "aws_sqs_queue" "csv_object_created" {
   message_retention_seconds = 86400
   receive_wait_time_seconds = 10
 
-  tags = {
-    Environment            = local.env
-    Product                = local.service_name
-    Terraform              = "true"
-    "Terraform Repository" = var.repository
-  }
+  tags = local.tf_common_tags
 }
