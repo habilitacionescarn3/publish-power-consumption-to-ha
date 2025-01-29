@@ -43,6 +43,6 @@ jobs:
           SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          HA_BASE_URL: ${{ vars.HA_BASE_URL }}
           HA_TOKEN: ${{ secrets.HA_TOKEN }}
-          HA_URL: ${{ secrets.HA_URL }}
           MONTHS: ${{ vars.MONTHS }}

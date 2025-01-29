@@ -10,8 +10,8 @@ from smart_open import open
 log = logging.getLogger()
 log.setLevel(logging.INFO)
 
+HA_BASE_URL = os.environ["HA_BASE_URL"]
 HA_TOKEN = os.environ["HA_TOKEN"]
-HA_URL = os.environ["HA_URL"]
 MONTHS = int(os.environ["MONTHS"])
 
 
@@ -36,7 +36,9 @@ def publish_to_ha(bucket: str, key: str) -> bool:
         }
 
         try:
-            r = requests.post(url=HA_URL + var_name, headers=headers, json=data)
+            endpoint = f"api/states/variable.{var_name}"
+            url = f"{HA_BASE_URL}/{endpoint}"
+            r = requests.post(url=url, headers=headers, json=data)
             r.raise_for_status()
             log.info(r.json())
             return True

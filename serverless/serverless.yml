@@ -19,8 +19,8 @@ provider:
     name: sls-deployments-${aws:accountId}-${self:provider.region}
     maxPreviousDeploymentArtifacts: 1
   environment:
+    HA_BASE_URL: ${env:HA_BASE_URL}
     HA_TOKEN: ${env:HA_TOKEN}
-    HA_URL: ${env:HA_URL}
     LOG_LEVEL: INFO
     MONTHS: ${env:MONTHS}
   iamRoleStatements:
